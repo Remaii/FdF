@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:22:56 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/19 11:50:58 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/21 12:43:37 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	status(t_mlx *fdf)
 {
 	printf("x= %d y= %d width= %d heigt= %d bpp= %d size= %d end= %d\n", fdf->x, fdf->y, fdf->width, fdf->heigt, fdf->bpp, fdf->size, fdf->end);
 	printf("xoff= %d yoff= %d max= %d min= %d idata= %s zoom= %f relief= %f\n", fdf->xoff, fdf->yoff, fdf->max, fdf->min, fdf->idata, fdf->zoom, fdf->relief);
+	test(fdf->map, fdf);
 }
 
 void	ft_stop(t_mlx *fdf)

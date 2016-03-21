@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 19:49:50 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/21 08:59:34 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/21 12:54:38 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,6 @@ void		parsemap(t_mlx *fdf, int fd)
 	printf("fin = fdf.xoff %d fdf.yoff %d\n", fdf->xoff, fdf->yoff);
 	lst_map(pts, fdf, j, i);
 	printf("fin du parse.c\n");
+	test(fdf->map, fdf);
 //	error(10);
 }

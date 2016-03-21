@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 18:53:58 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/21 08:53:54 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/21 12:42:58 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 # define FDF_H
 
 # include "libft.h"
-# include "get_next_line.h"
 # include "mlx.h"
 # include <fcntl.h>
 # include <errno.h>
@@ -89,4 +88,5 @@ void				parsemap(t_mlx *fdf, int fd);/*split l'entree en sauvegardant les\
 void				init(t_mlx *fdf, int ac, char **av);/*initialise la\
 													Structure t_mlx fdf*/
 
+void				test(int **map, t_mlx *fdf);
 #endif
