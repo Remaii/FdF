@@ -6,16 +6,15 @@
 #*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2015/12/06 13:02:35 by rthidet           #+#    #+#             *#
-#*   Updated: 2016/03/13 19:08:46 by rthidet          ###   ########.fr       *#
+#*   Updated: 2016/03/21 09:30:39 by rthidet          ###   ########.fr       *#
 #*                                                                            *#
 #******************************************************************************#
 
 NAME =
 EXE = fdf
-LFT = Libft/libft.a
-LIBS =-L./Libft/ -lft
+LFT = inc/libft.a
+LIBS =-L./inc/ -lft -lmlx
 EXP = ./Examples/
-MLX = -L./inc/ -lmlx
 
 HPATH = -I ./inc/
 
@@ -50,7 +49,6 @@ KO = $(RED)[KO!]$(RESET)
 # START RULES
 
 all:
-	@make lib
 	@$(CC) -c $(SRCDIR)
 	@mkdir -p $(OBJDIR) && mv $(SRC:.c=.o) ./$(OBJDIR)/
 	@echo "$(RED)Building $(WHITE)...$(EXE)...$(RESET)"
@@ -62,7 +60,7 @@ clean:
 	@$(RM) $(OBJDIR)
 
 fclean: clean
-	@make fclean -C ./Libft
+#	@make fclean -C ./Libft
 	@echo "$(CYAN)Removal $(EXE)$(RESET)"
 	@$(RM) $(EXE)
 
@@ -72,19 +70,6 @@ re: fclean
 
 # Personnal rules
 go: re
-	@./$(EXE)
-
-lib:
-	@make fclean -C Libft
-	@make -C Libft
-	@make clean -C Libft
-
-newpro:
-	@echo "$(YELLOW)Creat New Folder Project$(RESET)"
-	@mkdir Project src inc && mv src Project/ && mv inc Project/
-	@cd Project/
-	@echo "$(GREEN)Change Directory to Project$(RESET)"
-	@cp -R ~/42/42github/Libft ./Project
-	@echo "$(GREEN)Libft.a Done !$(RESET)"
+	@./$(EXE) 42_5
 
 .PHONY: all clean fclean go
