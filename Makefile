@@ -6,7 +6,7 @@
 #*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2015/12/06 13:02:35 by rthidet           #+#    #+#             *#
-#*   Updated: 2016/03/21 09:30:39 by rthidet          ###   ########.fr       *#
+#*   Updated: 2016/03/21 09:36:01 by rthidet          ###   ########.fr       *#
 #*                                                                            *#
 #******************************************************************************#
 
@@ -60,7 +60,6 @@ clean:
 	@$(RM) $(OBJDIR)
 
 fclean: clean
-#	@make fclean -C ./Libft
 	@echo "$(CYAN)Removal $(EXE)$(RESET)"
 	@$(RM) $(EXE)
 
