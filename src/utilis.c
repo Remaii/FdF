@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:22:56 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/21 12:43:37 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/22 15:27:35 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_stop(t_mlx *fdf)
 
 int		ft_key(int keycode, t_mlx *fdf)
 {
-	if (keycode == 53)/* ESC */
+	if (keycode == 53 || keycode == 17)/* ESC */
 		ft_stop(fdf);
 	else if (keycode == 123)/* fleche gauche */
 		fdf->xoff -= 20;

@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 18:53:58 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/21 12:42:58 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/22 13:52:22 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef struct		s_mlx
 	void			*win;/*pointer sur la fenetre mlx*/
 	int				width;/*Stockage de la largeur de la fenetre*/
 	int				heigt;/*Stockage de la hauteur de la fenetre*/
-	void			*img;/*Pointer sur l'image*/
+	int				*img;/*Pointer sur l'image*/
 	char			*idata;/*Stockage de get_data_addr*/
 	int				bpp;/*Bits Per Pixel*/
 	int				size;/*get_data_addr*/
