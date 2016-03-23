@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 18:53:58 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/22 13:52:22 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/22 20:59:06 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ typedef struct		s_mlx
 	int				bpp;/*Bits Per Pixel*/
 	int				size;/*get_data_addr*/
 	int				end;/*get_data_addr*/
+	int		test;
 	int				**map;/*Tableau de tableau contenant la map convertie*/
 	int				x;/*x max*/
 	int				xoff;/*position de l'image dans la fenetre*/
@@ -88,5 +89,8 @@ void				parsemap(t_mlx *fdf, int fd);/*split l'entree en sauvegardant les\
 void				init(t_mlx *fdf, int ac, char **av);/*initialise la\
 													Structure t_mlx fdf*/
 
-void				test(int **map, t_mlx *fdf);
+/** iso.c **/
+void				iso(t_mlx *fdf, int x, int y, int z);
+void				toiso(t_mlx *fdf, int x, int y, double ct1, int z);
+int					test(t_mlx *fdf);
 #endif

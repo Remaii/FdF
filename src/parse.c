@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 19:49:50 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/22 15:03:13 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/23 09:45:46 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void		lst_map(t_list *pts, t_mlx *fdf, int x, int y)
 	fdf->xoff = x * fdf->zoom * 3;
 	fdf->yoff = y * fdf->zoom * 2;
 	fdf->relief = 1;
-	status(fdf);
+//	status(fdf);
 }
 
 void		parsemap(t_mlx *fdf, int fd)
@@ -63,7 +63,7 @@ void		parsemap(t_mlx *fdf, int fd)
 	char	**lines;
 
 	i = 0;
-	printf("debut\n");
+//	printf("debut\n");
 	while (get_next_line(fd, &line))
 	{
 		//printf("line = %s\n", line);
@@ -72,6 +72,7 @@ void		parsemap(t_mlx *fdf, int fd)
 		while (lines[j] != NULL)
 		{
 			set_color(fdf, ft_atoi(lines[j]));
+//			iso(fdf, j, i, ft_atoi(lines[j]));
 			ft_lstadd(&pts, ft_lstnew(n_pts(j, i, ft_atoi(lines[j])),\
 													sizeof(t_pts)));
 			j++;
@@ -80,10 +81,9 @@ void		parsemap(t_mlx *fdf, int fd)
 	}
 	fdf->x = j;
 	fdf->y = i;
-	printf("fin = fdf.x %d fdf.y %d\n", fdf->x, fdf->y);
-	printf("fin = fdf.xoff %d fdf.yoff %d\n", fdf->xoff, fdf->yoff);
+//	printf("fin = fdf.x %d fdf.y %d\n", fdf->x, fdf->y);
+//	printf("fin = fdf.xoff %d fdf.yoff %d\n", fdf->xoff, fdf->yoff);
 	lst_map(pts, fdf, j, i);
-	printf("fin du parse.c\n");
-	test(fdf->map, fdf);
+	//test(fdf->map, fdf);
 //	error(10);
 }
