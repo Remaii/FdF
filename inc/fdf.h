@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 18:53:58 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/22 20:59:06 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/28 17:26:41 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include "mlx.h"
 # include <fcntl.h>
 # include <errno.h>
-
+# include <stdio.h>
 /** Static **/
 # define WIDTH 1200
 # define HEIGT 800
@@ -42,6 +42,14 @@ typedef struct		s_pts
 	int				y;
 	int				z;
 }					t_pts;
+
+typedef struct		s_diff
+{
+	int				x;
+	int				y;
+	float				xj;
+	float				yi;
+}					t_diff;
 
 /** Structure des variable utile a FdF **/
 typedef struct		s_mlx
@@ -90,7 +98,7 @@ void				init(t_mlx *fdf, int ac, char **av);/*initialise la\
 													Structure t_mlx fdf*/
 
 /** iso.c **/
-void				iso(t_mlx *fdf, int x, int y, int z);
+void				iso(t_mlx *fdf, t_diff *d, int x, int y, int z);
 void				toiso(t_mlx *fdf, int x, int y, double ct1, int z);
 int					test(t_mlx *fdf);
 #endif

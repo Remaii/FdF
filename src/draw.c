@@ -6,7 +6,7 @@
 /*   By: rthidet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 11:53:31 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/23 09:58:34 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/28 20:18:58 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,43 +32,54 @@ void			draw_hline(t_mlx *fdf, int x, int y, int d_x)
 	}
 }*/
 
-int				test(t_mlx *fdf)
+//screen.x = (map.x - map.y) * TILE_WIDTH_HALF; 
+//screen.y = (+ map.x map.y) * TILE_HEIGHT_HALF;
+
+
+int				test(t_mlx *f)
 {
-	int i;
-	int j;
 	int x;
 	int y;
-	int xj;
-	int yi;
+	t_diff d;
+
+	d.xj
+
+int				test(t_mlx *fdf)
+{
+	float i;
+	float j;
+	t_diff d;
 
 	i = 0;
-	y = 0;
-	xj = (fdf->width / fdf->x);
-	yi = (fdf->heigt / fdf->y);
+	d.y = 0;
+	d.xj = fdf->width / fdf->x;
+	d.yi = fdf->heigt / fdf->y;
 //	if (fdf->test == 1)
 //	{
 //		mlx_clear_window(fdf->mlx, fdf->win);
 //		fdf->test = 0;
 //	}
-	while (i <= fdf->width)
+	while (d.y <= fdf->y)
 	{
 		j = 0;
-		x = 0;
-		while (j <= fdf->heigt)
+		d.x = 0;
+		while (d.x <= fdf->x)
 		{
 			//if (fdf->test == 0)
 			//{
-				iso(fdf, i, j, fdf->map[y][x]);
+				iso(fdf, &d, i, j, fdf->map[d.y][d.x]);
+			//printf("i= %f j= %f xj=%f yi= %f x=%d y= %d\n", i, j, d.xj, d.yi, d.x, d.y);
 			//	toiso(fdf, i, j, fdf->relief, fdf->map[y][x]);
 			//}
 			//else
 			//	toiso(fdf, i, j, fdf->relief, fdf->map[y][x]);
-			j += xj;
-			x++;
+			j += d.xj;
+			d.x++;
 		}
-		i += yi;
-		y++;
+		i += d.yi;
+		d.y++;
 	}
-	fdf->test = 1;
+	//fdf->test = 1;
+	mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img, fdf->xoff, fdf->yoff);
 	return (0);
 }

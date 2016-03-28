@@ -6,11 +6,22 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 18:08:29 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/23 10:00:23 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/28 18:02:45 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
+
+void		img_put(t_mlx f, int x, int y, int color)
+{
+	char *data;
+	unsigned int val;
+
+	data = f.idata;
+	val = mlx_get_color_value(f.mlx, color);
+	if (x > 0 && x < f.width && y > 0 && y < f.heigt)
+		ft_memcpy(data + y * f.size + x * (f.bpp / 8), &val, 3);
+}
 
 void		vline(t_mlx *fdf, int x, int y, int color, int d_y)
 {
@@ -19,7 +30,7 @@ void		vline(t_mlx *fdf, int x, int y, int color, int d_y)
 	i = y;
 	while (i <= (y + d_y))
 	{
-		mlx_pixel_put(fdf->mlx, fdf->win, x, i, color);
+		img_put(*fdf, x, i, color);
 		i++;
 	}
 }
@@ -31,7 +42,7 @@ void		hline(t_mlx *fdf, int x, int y, int color, int d_x)
 	i = x;
 	while (i <= (x + d_x))
 	{
-		mlx_pixel_put(fdf->mlx, fdf->win, i, y, color);
+		img_put(*fdf, i, y, color);
 		i++;
 	}
 }
@@ -47,27 +58,31 @@ void			toiso(t_mlx *fdf, int x, int y, double ct1, int z)
 	{
 		i = x + c * z;
 		j = y + (c/2) * z;
-		mlx_pixel_put(fdf->mlx, fdf->win, i, j, wcolor(fdf, z));
+		img_put(*fdf, i, j, wcolor(fdf, z));
 		c += 0.001;
 	}
 }
 
 
-void			iso(t_mlx *fdf, int x, int y, int z)
+void			iso(t_mlx *fdf, t_diff *d, int x, int y, int z)
 {
-	int w;
-	int h;
-
-	w = (fdf->width / fdf->xoff);
-	h = (fdf->heigt / fdf->yoff);
-	if (x == fdf->width && y != fdf->heigt)
-		vline(fdf, x, y, wcolor(fdf, z), h);
-	if (y == fdf->heigt && x != fdf->width)
-		hline(fdf, x, y, wcolor(fdf, z), w);
-	else if (x < (fdf->width - w) && y < (fdf->heigt - h))
+//	printf("x= %d y= %d z= %d d.xj= %f d.yi= %f fdf.x= %d fdf.y= %d d.x= %d d.y= %d \n", x, y, z, d->xj, d->yi, fdf->x, fdf->y, d->x, d->y);
+	if (((x == 0 || (x + d->xj) > fdf->width) && y < fdf->heigt))
 	{
-		hline(fdf, x, y, wcolor(fdf, z), (fdf->heigt - h));
-		vline(fdf, x, y, wcolor(fdf, z), (fdf->width - w));
+		printf("vline x=%d, y=%d, color=%d, decal=%f\n", x, y, z, d->xj);
+		vline(fdf, x, y, wcolor(fdf, z), d->xj);
+	}
+	if (y == fdf->heigt && x != fdf->width)
+	{
+		printf("hline x=%d, y=%d, color=%d, decal=%f\n", x, y, wcolor(fdf, z), d->yi);
+		hline(fdf, x, y, wcolor(fdf, z), d->yi);
+	}
+	else if (x < fdf->width && y < fdf->heigt)
+	{
+//		printf("2 hline x=%d, y=%d, color=%d, decal=%f\n", x, y, z, d->xj);
+//		printf("2 vline x=%d, y=%d, color=%d, decal=%f\n", x, y, z, d->xj);
+		hline(fdf, x, y, wcolor(fdf, z), d->yi);
+		vline(fdf, x, y, wcolor(fdf, z), d->xj);
 	}
 	toiso(fdf, x, y, fdf->relief, z);
 }

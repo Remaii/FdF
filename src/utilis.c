@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:22:56 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/22 21:53:20 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/28 17:38:54 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ void	ft_stop(t_mlx *fdf)
 
 int		ft_key(int keycode, t_mlx *fdf)
 {
-			mlx_clear_window(fdf->mlx, fdf->win);
-			fdf->test = 0;
+	mlx_clear_window(fdf->mlx, fdf->win);
 	if (keycode == 53 || keycode == 17)/* ESC */
 		ft_stop(fdf);
 	else if (keycode == 123)/* fleche gauche */
@@ -54,10 +53,9 @@ int		ft_key(int keycode, t_mlx *fdf)
 	else if (keycode == 15)/* R */
 	{
 		mlx_clear_window(fdf->mlx, fdf->win);
-		fdf->test = 0;
-		/*fdf->xoff = (fdf->width / 2);
+		fdf->xoff = (fdf->width / 2);
 		fdf->yoff = (fdf->heigt / 2);
-*/	}
+	}
 	else
 		ft_putendl(ft_itoa(keycode));
 	test(fdf);
