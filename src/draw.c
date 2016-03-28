@@ -6,7 +6,7 @@
 /*   By: rthidet <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 11:53:31 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/28 20:18:58 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/28 21:52:26 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void			draw_hline(t_mlx *fdf, int x, int y, int d_x)
 //screen.x = (map.x - map.y) * TILE_WIDTH_HALF; 
 //screen.y = (+ map.x map.y) * TILE_HEIGHT_HALF;
 
-
+/*
 int				test(t_mlx *f)
 {
 	int x;
@@ -43,7 +43,8 @@ int				test(t_mlx *f)
 	t_diff d;
 
 	d.xj
-
+}
+*/
 int				test(t_mlx *fdf)
 {
 	float i;
