@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Remaii <Remaii@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 18:53:58 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/28 17:26:41 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/29 12:25:02 by Remaii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,14 +43,6 @@ typedef struct		s_pts
 	int				z;
 }					t_pts;
 
-typedef struct		s_diff
-{
-	int				x;
-	int				y;
-	float				xj;
-	float				yi;
-}					t_diff;
-
 /** Structure des variable utile a FdF **/
 typedef struct		s_mlx
 {
@@ -63,7 +55,7 @@ typedef struct		s_mlx
 	int				bpp;/*Bits Per Pixel*/
 	int				size;/*get_data_addr*/
 	int				end;/*get_data_addr*/
-	int		test;
+	int				draw;
 	int				**map;/*Tableau de tableau contenant la map convertie*/
 	int				x;/*x max*/
 	int				xoff;/*position de l'image dans la fenetre*/
@@ -71,6 +63,7 @@ typedef struct		s_mlx
 	int				yoff;/*position de l'image dans la fenetre*/
 	double			zoom;/*de l'image dans la fenetre*/
 	double			relief;/*de l'image dans la fenetre*/
+	int			rot;/* rotation de l'image*/
 	int				max;/*valeur du relief max*/
 	int				min;/*valeur du relief min*/
 	double			diff;/*difference entre min et max*/
@@ -81,24 +74,29 @@ void				perror(const char *s);/*return type d'erreur*/
 
 /** utilis.c **/
 void				error(int nb);/*donne le choix de l'erreur*/
-int					ft_key(int keycode, t_mlx *fdf);/*permet l'interaction entre
-													la fenetre et le clavier*/
 void				status(t_mlx *fdf);
+void				new_img(t_mlx *f);/*supp l'image actuel & cree une nouvel */
+int					ft_key(int keycode, t_mlx *fdf);/*permet l'interaction entre
+													la fenetre & le clavier*/
 
 /** color.c**/
 int					wcolor(t_mlx *fdf, int z);
 void				set_color(t_mlx *fdf, int z);
 
 /** parse.c **/
-void				parsemap(t_mlx *fdf, int fd);/*split l'entree en sauvegardant les\
-										coordonnees, x, y, z*/
+void				parsemap(t_mlx *fdf, int fd);/*split l'entre & save les\
+									coordonnees, x, y, z dans map[x][y] = z*/
 
 /** init.c **/
 void				init(t_mlx *fdf, int ac, char **av);/*initialise la\
 													Structure t_mlx fdf*/
 
 /** iso.c **/
-void				iso(t_mlx *fdf, t_diff *d, int x, int y, int z);
-void				toiso(t_mlx *fdf, int x, int y, double ct1, int z);
-int					test(t_mlx *fdf);
+void				img_put(t_mlx *fdf, int x, int y, int color);
+void				vline(t_mlx *fdf, t_pts *pt1, t_pts *pt2, int color);
+void				hline(t_mlx *fdf, t_pts *pt1, t_pts *pt2, int color);
+
+/** draw.c **/
+int					draw(t_mlx *fdf);
+
 #endif

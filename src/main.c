@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
+/*   By: Remaii <Remaii@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 13:32:53 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/23 09:44:40 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/29 11:43:21 by Remaii           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int		main(int ac, char **av)
 	init(&fdf, ac, av);
 	fd = open(av[1], O_RDONLY);
 	parsemap(&fdf, fd);
-	mlx_expose_hook(fdf.win, test, &fdf);
+	mlx_expose_hook(fdf.win, draw, &fdf);
 	mlx_key_hook(fdf.win, ft_key, &fdf);
 	mlx_loop(fdf.mlx);
 	return (0);

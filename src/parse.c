@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 19:49:50 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/23 23:03:30 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/29 11:58:29 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,10 @@ void		lst_map(t_list *pts, t_mlx *fdf, int x, int y)
 		tmp = tmp->next;
 	}
 	fdf->map = map;
-	fdf->zoom = 100 / (x + y);
+	fdf->zoom = 360 / (x + y);
 	fdf->xoff = x * fdf->zoom * 3;
 	fdf->yoff = y * fdf->zoom * 2;
-	fdf->relief = 1;
+	fdf->relief = 0.2;
 //	status(fdf);
 }
 
