@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 19:49:50 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/29 11:58:29 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/29 15:58:02 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 t_pts		*n_pts(int x, int y, int z)
 {
-	t_pts *pts;
+	t_pts	*pts;
 
 	pts = (t_pts *)ft_memalloc(sizeof(t_pts));
 	pts->x = x;
@@ -28,8 +28,8 @@ void		lst_map(t_list *pts, t_mlx *fdf, int x, int y)
 {
 	int		i;
 	int		**map;
-	t_list *tmp;
-	t_pts *pt;
+	t_list	*tmp;
+	t_pts	*pt;
 
 	i = 0;
 	tmp = pts;
@@ -51,7 +51,6 @@ void		lst_map(t_list *pts, t_mlx *fdf, int x, int y)
 	fdf->xoff = x * fdf->zoom * 3;
 	fdf->yoff = y * fdf->zoom * 2;
 	fdf->relief = 0.2;
-//	status(fdf);
 }
 
 void		parsemap(t_mlx *fdf, int fd)
@@ -63,16 +62,13 @@ void		parsemap(t_mlx *fdf, int fd)
 	char	**lines;
 
 	i = 0;
-//	printf("debut\n");
 	while (get_next_line(fd, &line))
 	{
-		//printf("line = %s\n", line);
 		lines = ft_strsplit(line, ' ');
 		j = 0;
 		while (lines[j] != NULL)
 		{
 			set_color(fdf, ft_atoi(lines[j]));
-//			iso(fdf, j, i, ft_atoi(lines[j]));
 			ft_lstadd(&pts, ft_lstnew(n_pts(j, i, ft_atoi(lines[j])),\
 													sizeof(t_pts)));
 			j++;
@@ -81,10 +77,5 @@ void		parsemap(t_mlx *fdf, int fd)
 	}
 	fdf->x = j;
 	fdf->y = i;
-//	printf("fin = fdf.x %d fdf.y %d\n", fdf->x, fdf->y);
-//	printf("fin = fdf.xoff %d fdf.yoff %d\n", fdf->xoff, fdf->yoff);
 	lst_map(pts, fdf, j, i);
-//	lol(pts);
-//test(fdf->map, fdf);
-//	error(10);
 }

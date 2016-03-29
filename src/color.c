@@ -6,13 +6,13 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 04:27:03 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/28 15:51:18 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/29 14:32:07 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
 
-int			wcolor(t_mlx *fdf, int z)
+int				wcolor(t_mlx *fdf, int z)
 {
 	if (z <= ((fdf->diff / 10) * (-0.08)))
 		return (B_FNC);
@@ -36,9 +36,9 @@ int			wcolor(t_mlx *fdf, int z)
 		return (AUTRE);
 }
 
-static int			count_diff(int nb1, int nb2)
+static int		count_diff(int nb1, int nb2)
 {
-	int		i;
+	int			i;
 
 	i = 0;
 	if (nb1 < nb2)
@@ -56,7 +56,7 @@ static int			count_diff(int nb1, int nb2)
 	return (i);
 }
 
-void		set_color(t_mlx *fdf, int z)
+void			set_color(t_mlx *fdf, int z)
 {
 	fdf->min = ft_min(z, fdf->min);
 	fdf->max = ft_max(z, fdf->max);

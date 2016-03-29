@@ -6,13 +6,13 @@
 /*   By: Remaii <Remaii@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 13:32:53 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/29 11:43:21 by Remaii           ###   ########.fr       */
+/*   Updated: 2016/03/29 15:51:02 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
 
-void	error(int nb)
+void		error(int nb)
 {
 	if (nb == 0)
 		ft_putendl("Error mlx_init");
@@ -20,15 +20,17 @@ void	error(int nb)
 		perror("Error:");
 	else if (nb == 2)
 		ft_putendl(USAGE);
+	else if (nb == 3)
+		ft_putendl("Invalid map");
 	else
 		perror("Perror:");
 	exit(0);
 }
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
-	int fd;
-	t_mlx fdf;
+	int		fd;
+	t_mlx	fdf;
 
 	init(&fdf, ac, av);
 	fd = open(av[1], O_RDONLY);

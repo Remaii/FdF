@@ -10,8 +10,7 @@
 #*                                                                            *#
 #******************************************************************************#
 
-NAME =
-EXE = fdf
+NAME = fdf
 LFT = inc/libft.a
 LIBS =-L./inc/ -lft -lmlx
 EXP = ./Examples/
@@ -47,28 +46,25 @@ OK = $(GREEN)[OK!]$(RESET)
 KO = $(RED)[KO!]$(RESET)
 
 # START RULES
-
-all:
+$(NAME):
 	@$(CC) -c $(SRCDIR)
 	@mkdir -p $(OBJDIR) && mv $(SRC:.c=.o) ./$(OBJDIR)/
-	@echo "$(RED)Building $(WHITE)...$(EXE)...$(RESET)"
-	@$(CC) -o $(EXE) $(OBJ) $(LIBS) $(C_MLX) $(HPATH)
+	@echo "$(RED)Building $(WHITE)...$(NAME)...$(RESET)"
+	@$(CC) -o $(NAME) $(OBJ) $(LIBS) $(C_MLX) $(HPATH)
 	@echo "$(GREEN)OK!$(RESET)"
+
+all: $(NAME)
 
 clean:
 	@echo "$(CYAN)Removal Object folder of $(EXE)$(RESET)"
 	@$(RM) $(OBJDIR)
 
 fclean: clean
-	@echo "$(CYAN)Removal $(EXE)$(RESET)"
-	@$(RM) $(EXE)
+	@echo "$(CYAN)Removal $(NAME)$(RESET)"
+	@$(RM) $(NAME)
 
 re: fclean
 	@make all
 	@make clean
 
-# Personnal rules
-go: re
-	@./$(EXE) 42_5
-
-.PHONY: all clean fclean go
+.PHONY: all clean fclean

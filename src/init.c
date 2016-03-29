@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 18:51:44 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/29 10:44:00 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/29 14:39:26 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void		initmlx(t_mlx *fdf)
 	fdf->draw = 0;
 }
 
-void		init(t_mlx *fdf, int ac, char **av)
+void			init(t_mlx *fdf, int ac, char **av)
 {
 	if (ac == 2)
 	{

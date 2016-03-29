@@ -6,8 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 14:49:01 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/21 12:00:06 by rthidet          ###   ########.fr       */
-/*   Updated: 2015/12/20 18:05:05 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/29 15:32:10 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +21,10 @@
 # include <unistd.h>
 # include <fcntl.h>
 
-/* Get_Next_Line */
+/*
+** Get_Next_Line
+*/
+
 typedef struct		s_gnl
 {
 	char			*line[MAX_FD + 1];
@@ -33,7 +35,10 @@ typedef struct		s_gnl
 
 int					get_next_line(int const fd, char **line);
 
-/* List */
+/*
+** List
+*/
+
 typedef struct		s_list
 {
 	void			*content;
@@ -48,7 +53,10 @@ void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstnew(void const *content, size_t content_size);
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
-/* Lib */
+/*
+** Lib
+*/
+
 void				ft_bzero(void *str, size_t n);
 void				ft_memdel(void **ap);
 void				*ft_memset(void *str, int c, size_t n);
