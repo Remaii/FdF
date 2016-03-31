@@ -6,21 +6,25 @@
 /*   By: Remaii <Remaii@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 18:08:29 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/29 14:41:33 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/30 19:50:29 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
+#include <stdio.h>
 
 void				img_put(t_mlx *f, int x, int y, int color)
 {
-	char			*data;
 	unsigned int	val;
 
-	data = f->idata;
-	val = mlx_get_color_value(f->mlx, color);
+	color = wcolor(f, color);
 	if (x > 0 && x < f->width && y > 0 && y < f->heigt)
-		ft_memcpy(data + y * f->size + x * (f->bpp / 8), &val, 3);
+	{
+		val = y * f->size + x * (f->bpp / 8);
+		f->idata[val] = mlx_get_color_value(f->mlx, color);
+		f->idata[val + 1] = mlx_get_color_value(f->mlx, color >> 8);
+		f->idata[val + 2] = mlx_get_color_value(f->mlx, color >> 16);
+	}
 }
 
 void				vline(t_mlx *fdf, t_pts *pt1, t_pts *pt2, int color)

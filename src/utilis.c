@@ -6,7 +6,7 @@
 /*   By: Remaii <Remaii@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:22:56 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/29 15:11:18 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/31 12:13:19 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	ft_stop(t_mlx *fdf)
 {
 	mlx_destroy_image(fdf->mlx, fdf->img);
 	mlx_destroy_window(fdf->mlx, fdf->win);
+	ft_putendl("End of Program");
 	exit(0);
 }
 
@@ -54,9 +55,11 @@ int		ft_key(int keycode, t_mlx *fdf)
 		fdf->relief -= 0.05;
 	else if (keycode == 15)
 	{
-		fdf->xoff = ((fdf->width / 2) - 100);
-		fdf->yoff = ((fdf->heigt / 2) - 130);
+		fdf->xoff = ((fdf->width / 2) - (fdf->width / 20));//100);
+		fdf->yoff = ((fdf->heigt / 2) - (fdf->heigt / 8));//130);
 	}
+	else if (keycode == 4)
+		set_display(fdf);
 	draw(fdf);
 	return (0);
 }

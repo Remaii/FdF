@@ -6,7 +6,7 @@
 /*   By: Remaii <Remaii@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 18:53:58 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/29 15:24:26 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/31 12:15:37 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,19 +28,34 @@
 # define USAGE "./fdf path_to_map.fdf or ./fdf path X_window_size Y_window_size"
 
 /*
+** Commandes
+*/
+
+# define B_ESC "Esc to Exit"
+# define B_Q "Q to put into relief up"
+# define B_A "A to put into relief down"
+# define B_W "W to Zoom In"
+# define B_S "S to Zoom Out"
+# define UDLR "Arrow to Move"
+# define B_R "R to Reset position"
+# define B_HO "H to show Help"
+# define B_HF "H to hide Help"
+
+/*
 ** Color
 */
 
-# define B_FNC 0x8b
-# define B_CLR 0x87ceeb
-# define B_TUR 0x40e0d0
-# define JAUNE 0xffffe0
-# define V_CLR 0xff7f
-# define V_FNC 0x6400
-# define M_CLR 0xf4a460
-# define M_FNC 0xa52a2a
-# define BLANC 0x0FFFFFF
-# define AUTRE 0xff69b4
+# define N_OIR 0x000000
+# define B_FNC 0x0000cd
+# define B_CLR 0x1e90ff
+# define B_TUR 0x00ffff
+# define JAUNE 0xffff00
+# define V_CLR 0x00ff00
+# define V_FNC 0x228b22
+# define M_CLR 0xd2691e
+# define M_FNC 0xa0522d
+# define BLANC 0xffffff
+# define AUTRE 0xff00ff
 
 /*
 ** Structure des points 3D
@@ -75,6 +90,7 @@ typedef struct		s_pts
 ** max = valeur du relief max
 ** min = valeur du relief min
 ** diff = difference entre min et max
+** help = affiche la legende
 */
 
 typedef struct		s_mlx
@@ -99,6 +115,7 @@ typedef struct		s_mlx
 	int				max;
 	int				min;
 	double			diff;
+	int				help;
 }					t_mlx;
 
 /*
@@ -113,7 +130,7 @@ void				perror(const char *s);
 
 void				error(int nb);
 void				status(t_mlx *fdf);
-void				new_img(t_mlx *f);
+void				new_img(t_mlx *fdf);
 int					ft_key(int keycode, t_mlx *fdf);
 
 /*
@@ -148,5 +165,12 @@ void				hline(t_mlx *fdf, t_pts *pt1, t_pts *pt2, int color);
 */
 
 int					draw(t_mlx *fdf);
+
+/*
+** display.c
+*/
+
+void				display(t_mlx *fdf);
+void				set_display(t_mlx *fdf);
 
 #endif

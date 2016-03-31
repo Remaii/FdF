@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 18:51:44 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/29 14:39:26 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/31 11:37:34 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void		initmlx(t_mlx *fdf)
 	fdf->xoff = 0;
 	fdf->yoff = 0;
 	fdf->draw = 0;
+	fdf->help = 1;
 }
 
 void			init(t_mlx *fdf, int ac, char **av)
@@ -35,8 +36,8 @@ void			init(t_mlx *fdf, int ac, char **av)
 	}
 	else if (ac == 4)
 	{
-		fdf->heigt = ft_atoi(av[2]);
-		fdf->width = ft_atoi(av[3]);
+		fdf->heigt = ft_atoi(av[3]);
+		fdf->width = ft_atoi(av[2]);
 		initmlx(fdf);
 	}
 	else

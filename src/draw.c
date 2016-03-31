@@ -6,7 +6,7 @@
 /*   By: Remaii <Remaii@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/21 11:53:31 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/29 16:07:14 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/31 12:17:01 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ void		draw_square(t_mlx *f, t_pts pt1, t_pts pt2, t_pts pt3)
 	make_iso(&pt1, f);
 	make_iso(&pt2, f);
 	make_iso(&pt3, f);
-	draw_line(f, &pt1, &pt2, wcolor(f, (pt1.z > pt2.z) ? pt1.z : pt2.z));
-	draw_line(f, &pt1, &pt3, wcolor(f, (pt1.z > pt3.z) ? pt1.z : pt3.z));
+	draw_line(f, &pt1, &pt2, ((pt1.z > pt2.z) ? pt1.z : pt2.z));
+	draw_line(f, &pt1, &pt3, ((pt1.z > pt3.z) ? pt1.z : pt3.z));
 }
 
 int			draw(t_mlx *f)
@@ -89,5 +89,6 @@ int			draw(t_mlx *f)
 	}
 	f->draw = 1;
 	mlx_put_image_to_window(f->mlx, f->win, f->img, 0, 0);
+	display(f);
 	return (0);
 }
