@@ -6,7 +6,7 @@
 #*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        *#
 #*                                                +#+#+#+#+#+   +#+           *#
 #*   Created: 2015/12/06 13:02:35 by rthidet           #+#    #+#             *#
-#*   Updated: 2016/03/22 19:36:29 by rthidet          ###   ########.fr       *#
+#*   Updated: 2016/03/31 15:28:19 by rthidet          ###   ########.fr       *#
 #*                                                                            *#
 #******************************************************************************#
 
@@ -56,7 +56,7 @@ $(NAME):
 all: $(NAME)
 
 clean:
-	@echo "$(CYAN)Removal Object folder of $(EXE)$(RESET)"
+	@echo "$(CYAN)Removal Object folder of $(NAME)$(RESET)"
 	@$(RM) $(OBJDIR)
 
 fclean: clean
