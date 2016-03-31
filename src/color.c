@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 04:27:03 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/31 15:15:31 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/31 19:23:37 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,10 @@ int				wcolor(t_mlx *f, int z)
 		return(zcolor1(f, z));
 	if (f->col == 2)
 		return (zcolor2(f, z));
+	if (f->col == 3)
+		return (zcolor3(f, z));
+	if (f->col == 4)
+		return (zcolor4(f, z));
 	else
 	{
 		f->col = 1;
@@ -54,7 +58,7 @@ int				wcolor(t_mlx *f, int z)
 
 void 			set_theme(t_mlx *f)
 {
-	if (f->col == 1)
+	if (f->col < 5)
 		f->col++;
 	else
 		f->col = 1;

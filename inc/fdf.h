@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 18:53:58 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/31 15:17:31 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/31 19:20:35 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <errno.h>
 //# include <stdio.h>
 # include <math.h>
+#include "color.h"
 
 /*
 ** Static
@@ -42,22 +43,6 @@
 # define B_HO "H to show Help"
 # define B_HF "H to hide Help"
 # define C_NX "C to Color Theme Next"
-
-/*
-** Color
-*/
-
-# define N_OIR 0x000000
-# define B_FNC 0x0000cd
-# define B_CLR 0x1e90ff
-# define B_TUR 0x00ffff
-# define JAUNE 0xffff00
-# define V_CLR 0x00ff00
-# define V_FNC 0x228b22
-# define M_CLR 0xd2691e
-# define M_FNC 0xa0522d
-# define BLANC 0xffffff
-# define AUTRE 0xff00ff
 
 /*
 ** Structure des points 3D
@@ -150,6 +135,8 @@ void 				set_theme(t_mlx *fdf);
 
 int					zcolor1(t_mlx *fdf, int z);
 int					zcolor2(t_mlx *fdf, int z);
+int					zcolor3(t_mlx *fdf, int z);
+int					zcolor4(t_mlx *fdf, int z);
 
 /*
 ** parse.c
