@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   utilis.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Remaii <Remaii@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:22:56 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/31 12:13:19 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/31 15:25:41 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
-#include <stdio.h>
 
 void	new_img(t_mlx *f)
 {
@@ -33,7 +32,7 @@ void	ft_stop(t_mlx *fdf)
 ** 126 = fleche bas, 13 = W, 1 = S, 12 = Q, 0 = A, 15 = R
 */
 
-int		ft_key(int keycode, t_mlx *fdf)
+int		ft_key2(int keycode, t_mlx *fdf)
 {
 	if (keycode == 53)
 		ft_stop(fdf);
@@ -55,11 +54,20 @@ int		ft_key(int keycode, t_mlx *fdf)
 		fdf->relief -= 0.05;
 	else if (keycode == 15)
 	{
-		fdf->xoff = ((fdf->width / 2) - (fdf->width / 20));//100);
-		fdf->yoff = ((fdf->heigt / 2) - (fdf->heigt / 8));//130);
+		fdf->xoff = ((fdf->width / 2) - (fdf->width / 20));
+		fdf->yoff = ((fdf->heigt / 2) - (fdf->heigt / 8));
 	}
-	else if (keycode == 4)
+	return (0);
+}
+
+int		ft_key(int keycode, t_mlx *fdf)
+{
+	if (keycode == 4)
 		set_display(fdf);
+	else if (keycode == 8)
+		set_theme(fdf);
+	else
+		ft_key2(keycode, fdf);
 	draw(fdf);
 	return (0);
 }

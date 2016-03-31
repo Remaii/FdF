@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 19:49:50 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/30 19:51:54 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/31 13:17:10 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void		lst_map(t_list *pts, t_mlx *fdf, int x, int y)
 	{
 		pt = tmp->content;
 		if (pt->x < x && pt->y < y)
-			map[pt->x][pt->y] = pt->z;
+			map[(int)pt->x][(int)pt->y] = pt->z;
 		tmp = tmp->next;
 	}
 	fdf->map = map;

@@ -6,12 +6,11 @@
 /*   By: Remaii <Remaii@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 18:08:29 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/30 19:50:29 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/31 15:22:28 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
-#include <stdio.h>
 
 void				img_put(t_mlx *f, int x, int y, int color)
 {

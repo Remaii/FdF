@@ -6,7 +6,7 @@
 /*   By: Remaii <Remaii@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/09 13:32:53 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/31 11:49:41 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/31 15:12:44 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int			main(int ac, char **av)
 	t_mlx	fdf;
 
 	init(&fdf, ac, av);
-	fd = open(av[1], O_RDONLY);
+	if((fd = open(av[1], O_RDONLY)) == -1)
+		error(3);
 	parsemap(&fdf, fd);
 	mlx_expose_hook(fdf.win, draw, &fdf);
 	mlx_key_hook(fdf.win, ft_key, &fdf);

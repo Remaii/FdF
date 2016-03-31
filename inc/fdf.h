@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Remaii <Remaii@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 18:53:58 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/31 12:15:37 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/03/31 15:17:31 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@
 # include "mlx.h"
 # include <fcntl.h>
 # include <errno.h>
-# include <stdio.h>
+//# include <stdio.h>
+# include <math.h>
 
 /*
 ** Static
@@ -40,6 +41,7 @@
 # define B_R "R to Reset position"
 # define B_HO "H to show Help"
 # define B_HF "H to hide Help"
+# define C_NX "C to Color Theme Next"
 
 /*
 ** Color
@@ -115,6 +117,7 @@ typedef struct		s_mlx
 	int				max;
 	int				min;
 	double			diff;
+	int				col;
 	int				help;
 }					t_mlx;
 
@@ -139,6 +142,14 @@ int					ft_key(int keycode, t_mlx *fdf);
 
 int					wcolor(t_mlx *fdf, int z);
 void				set_color(t_mlx *fdf, int z);
+void 				set_theme(t_mlx *fdf);
+
+/*
+** color2.c
+*/
+
+int					zcolor1(t_mlx *fdf, int z);
+int					zcolor2(t_mlx *fdf, int z);
 
 /*
 ** parse.c
