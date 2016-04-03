@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 18:53:58 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/31 19:20:35 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/04/03 14:32:55 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,11 @@
 # define FDF_H
 
 # include "libft.h"
+# include "color.h"
 # include "mlx.h"
 # include <fcntl.h>
 # include <errno.h>
-//# include <stdio.h>
 # include <math.h>
-#include "color.h"
 
 /*
 ** Static
@@ -137,6 +136,7 @@ int					zcolor1(t_mlx *fdf, int z);
 int					zcolor2(t_mlx *fdf, int z);
 int					zcolor3(t_mlx *fdf, int z);
 int					zcolor4(t_mlx *fdf, int z);
+int					zcolor5(t_mlx *fdf, int z);
 
 /*
 ** parse.c

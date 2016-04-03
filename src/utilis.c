@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:22:56 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/31 19:31:34 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/04/01 09:44:40 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ int		ft_key2(int keycode, t_mlx *fdf)
 		fdf->xoff = ((fdf->width / 2) - (fdf->width / 20));
 		fdf->yoff = ((fdf->heigt / 2) - (fdf->heigt / 8));
 	}
+	else
+		ft_putendl(ft_itoa(keycode));
 	return (0);
 }
 

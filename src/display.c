@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 10:45:15 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/31 15:10:09 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/04/03 14:31:24 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,23 @@ void			set_display(t_mlx *f)
 		f->help = 0;
 	else
 		f->help = 1;
+}
+
+void			dis_color(t_mlx *f)
+{
+	mlx_string_put(f->mlx, f->win, 15, f->heigt - 60, BLANC, C_NX);
+	if (f->col == 1)
+		mlx_string_put(f->mlx, f->win, 3, f->heigt - 60, BLANC, "1");
+	else if (f->col == 2)
+		mlx_string_put(f->mlx, f->win, 3, f->heigt - 60, BLANC, "2");
+	else if (f->col == 3)
+		mlx_string_put(f->mlx, f->win, 3, f->heigt - 60, BLANC, "3");
+	else if (f->col == 4)
+		mlx_string_put(f->mlx, f->win, 3, f->heigt - 60, BLANC, "4");
+	else if (f->col == 5)
+		mlx_string_put(f->mlx, f->win, 3, f->heigt - 60, BLANC, "5");
+	else
+		mlx_string_put(f->mlx, f->win, 3, f->heigt - 60, BLANC, "Inconue");
 }
 
 void			display(t_mlx *f)
@@ -32,7 +49,7 @@ void			display(t_mlx *f)
 		mlx_string_put(f->mlx, f->win, 5, 78, BLANC, B_R);
 		mlx_string_put(f->mlx, f->win, 5, f->heigt - 40, BLANC, UDLR);
 		mlx_string_put(f->mlx, f->win, 5, f->heigt - 20, BLANC, B_HF);
-		mlx_string_put(f->mlx, f->win, 5, f->heigt - 60, BLANC, C_NX);
+		dis_color(f);
 	}
 	else
 		mlx_string_put(f->mlx, f->win, 5, f->heigt - 20, BLANC, B_HO);

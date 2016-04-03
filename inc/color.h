@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 18:11:00 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/31 19:26:48 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/04/03 14:29:10 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@
 # define B_FNC		0x0000cd
 # define B_CLR		0x1e90ff
 # define B_TUR		0x00ffff
-# define JAUNE1		0xffff00
 # define V_CLR		0x00ff00
 # define V_FNC		0x228b22
 # define M_CLR		0xd2691e

@@ -6,11 +6,36 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/31 14:26:33 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/31 19:21:16 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/04/03 14:30:12 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/fdf.h"
+
+int				zcolor5(t_mlx *fdf, int z)
+{
+	set_color(fdf, z);
+	if (z <= fdf->min)
+		return (BLEU);
+	else if (z <= ((fdf->diff / 10) * (-0.05)))
+		return (GREEN);
+	else if (z <= ((fdf->diff / 10) * 0))
+		return (GOLD);
+	else if (z <= ((fdf->diff / 10) * 1))
+		return (VIOLET);
+	else if (z <= ((fdf->diff / 10) * 2))
+		return (MAGENTA);
+	else if (z <= ((fdf->diff / 10) * 3))
+		return (ORANGE);
+	else if (z <= ((fdf->diff / 10) * 4))
+		return (ROUGE1);
+	else if (z <= ((fdf->diff / 10) * 8))
+		return (TURQUOISE);
+	else if (z <= fdf->max)
+		return (TOMATO);
+	else
+		return (ROSE_FLASH);
+}
 
 int				zcolor4(t_mlx *fdf, int z)
 {
@@ -37,7 +62,6 @@ int				zcolor4(t_mlx *fdf, int z)
 		return (ROSE_FLASH);
 }
 
-
 int				zcolor3(t_mlx *fdf, int z)
 {
 	set_color(fdf, z);
@@ -62,7 +86,6 @@ int				zcolor3(t_mlx *fdf, int z)
 	else
 		return (ROSE_FLASH);
 }
-
 
 int				zcolor2(t_mlx *fdf, int z)
 {
