@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/17 13:22:56 by rthidet           #+#    #+#             */
-/*   Updated: 2016/04/01 09:44:40 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/04/17 13:13:29 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_stop(t_mlx *fdf)
 
 /*
 ** 53 = ESC, 123 = fleche gauche, 124 = fleche droite, 125 = fleche haut,
-** 126 = fleche bas, 13 = W, 1 = S, 12 = Q, 0 = A, 15 = R
+** 126 = fleche bas, 13 = W, 1 = S, 12 = Q, 0 = A, 15 = R, 4 = H, 8 = C
 */
 
 int		ft_key2(int keycode, t_mlx *fdf)
@@ -54,11 +54,9 @@ int		ft_key2(int keycode, t_mlx *fdf)
 		fdf->relief -= 0.05;
 	else if (keycode == 15)
 	{
-		fdf->xoff = ((fdf->width / 2) - (fdf->width / 20));
+		fdf->xoff = ((fdf->width / 2) - (fdf->width / 32));
 		fdf->yoff = ((fdf->heigt / 2) - (fdf->heigt / 8));
 	}
-	else
-		ft_putendl(ft_itoa(keycode));
 	return (0);
 }
 

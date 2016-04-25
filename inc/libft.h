@@ -6,14 +6,14 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/11/24 14:49:01 by rthidet           #+#    #+#             */
-/*   Updated: 2016/03/29 15:32:10 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/04/07 19:57:40 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
 
-# define BUFF_SIZE 8
+# define BUFF_SIZE 1000
 # define MAX_FD 256
 
 # include <stdlib.h>

@@ -6,7 +6,7 @@
 /*   By: rthidet <rthidet@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/13 18:53:58 by rthidet           #+#    #+#             */
-/*   Updated: 2016/04/03 14:32:55 by rthidet          ###   ########.fr       */
+/*   Updated: 2016/04/17 13:07:11 by rthidet          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@
 # define B_R "R to Reset position"
 # define B_HO "H to show Help"
 # define B_HF "H to hide Help"
-# define C_NX "C to Color Theme Next"
+# define C_NX "C to Change Color:"
 
 /*
 ** Structure des points 3D
